@@ -11,8 +11,10 @@ const io = new Server(server)
 // Socket connections
 
 io.on("connection", (socket) => {
-    socket.on("user_message", (message) => {
-        io.emit("message", message)
+    console.log("Connected...");
+
+    socket.on('message', (msg) => {
+        socket.broadcast.emit('message', msg);
     })
 })
 

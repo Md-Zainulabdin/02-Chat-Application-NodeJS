@@ -5,49 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Chat Application</title>
 </head>
 
-<style>
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 5px;
-    }
-</style>
-
-<body>
+<body class="bg-[#fafafa]">
 
     <div class="container w-full h-screen flex items-center justify-center">
-        <div class="wrapper border w-[500px] h-[600px] overflow-hidden">
+        <div class="wrapper bg-white w-[500px] h-[600px] overflow-hidden shadow-md">
             <div class="title flex gap-3 p-4 border bg-slate-200">
                 <i class="ri-chat-smile-2-line text-2xl text-[#333]"></i>
                 <h2 class="text-xl text-[#333] font-semibold">Chat Application</h2>
             </div>
 
-            <div class="chat-area p-4 w-full h-[485px] border overflow-y-scroll">
-                <div class="messages w-full flex flex-col gap-3">
-                    <div class="incoming_message bg-[#e1f8dc] px-3 py-2">
-                        <h2>Zain</h2>
-                        <p>Hello Wolrd!</p>
-                    </div>
-                    <div class="ongoing_message bg-indigo-100 px-3 py-2">
-                        <h2>Raza</h2>
-                        <p>fine..</p>
-                    </div>
-                </div>
+            <div class="chat-area px-4 pt-4 flex flex-col gap-3 h-[485px] border overflow-y-scroll">
+                
             </div>
 
             <div class="text-area">
-                <textarea  id="text" cols="30" rows="1" placeholder="Write your message..." class="w-full border p-3 outline-none"></textarea>
+                <textarea id="textarea" cols="30" rows="1" placeholder="Write your message..." autofocus
+                    class="w-full border p-3 outline-none"></textarea>
             </div>
         </div>
     </div>
