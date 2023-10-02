@@ -4,28 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Chat App</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Chat Application</title>
 </head>
 
+<style>
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+</style>
+
 <body>
-    <h1>Chat Application</h1>
-    <input type="text" id="message" placeholder="Enter your message...">
-    <button id="sendBtn">Send</button>
+
+    <div class="container w-full h-screen flex items-center justify-center">
+        <div class="wrapper border w-[500px] h-[600px] overflow-hidden">
+            <div class="title flex gap-3 p-4 border bg-slate-200">
+                <i class="ri-chat-smile-2-line text-2xl text-[#333]"></i>
+                <h2 class="text-xl text-[#333] font-semibold">Chat Application</h2>
+            </div>
+
+            <div class="chat-area p-4 w-full h-[485px] border overflow-y-scroll">
+                <div class="messages w-full flex flex-col gap-3">
+                    <div class="incoming_message bg-[#e1f8dc] px-3 py-2">
+                        <h2>Zain</h2>
+                        <p>Hello Wolrd!</p>
+                    </div>
+                    <div class="ongoing_message bg-indigo-100 px-3 py-2">
+                        <h2>Raza</h2>
+                        <p>fine..</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-area">
+                <textarea  id="text" cols="30" rows="1" placeholder="Write your message..." class="w-full border p-3 outline-none"></textarea>
+            </div>
+        </div>
+    </div>
+
 
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        const socket = io();
-        const sendBtn = document.getElementById("sendBtn")
-        const messageInput = document.getElementById("message");
-
-        socket.on("message", (message) => console.log(message))
-
-        sendBtn.addEventListener('click', () => {
-            const message = messageInput.value;
-            socket.emit("user_message", message)
-        }) 
-    </script>
     <script src="./client.js"></script>
 </body>
 
